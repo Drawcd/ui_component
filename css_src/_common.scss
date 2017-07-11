@@ -1,0 +1,10 @@
+.inner-box {
+  width:1200px;
+  margin : 0 auto;
+}
+
+.clearfix:after{
+  content:"";
+  display:block;
+  clear:both;
+}
