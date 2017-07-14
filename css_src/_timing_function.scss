@@ -1,0 +1,164 @@
+.heading {
+  padding:30px;
+  border:1px solid #009999;
+  border-left:0;
+  font-size:30px;
+  // 한 문장에 영문/한글 혼용되었을 때 한글 폰트 종류를 다르게 적용하는 방법 // 한글이 없는 영문폰트를 앞으로 넣으면 혼용사용된다.
+  // 참고 : http://www.thewordcracker.com/basic/how-to-display-different-fonts-for-english-and-korean-text-respectively/
+  font-family: 'Montserrat', 'Noto Sans CJK KR', sans-serif;
+}
+
+
+
+.css-wrap{
+  border:{
+    left:1px solid #009999;
+    bottom:1px solid #009999;
+  }
+  margin:10px 10px 100px;
+
+  @extend %clearfix;
+
+  .inner-wrap{
+    width:20%;
+    height:500px;
+    border-right:1px solid #009999;
+    float:left;
+    box-sizing:border-box;
+    position:relative;
+
+    &:before{
+      position:absolute;
+      top:200px;
+      font-size:30px;
+      color:#ddd;
+      transform:rotate(45deg);
+    }
+
+    &:nth-child(2):before{
+      content:"등속운동(linear)";
+    }
+
+    &:nth-child(3):before{
+      content:"가속운동(ease-in)";
+    }
+
+    &:nth-child(4):before{
+      content:"감속운동(ease-out)";
+    }
+
+    &:nth-child(5):before{
+      content:"가감속운동(ease-in-out)";
+    }
+
+    &:nth-child(6):before{
+      content:"사용자정의속도운동(cubic-bezier)";
+    }
+  }
+
+  .box{
+    width:50px;
+    height:50px;
+    background:orange;
+    text-align:center;
+    line-height:50px;
+    position:absolute;
+    top:0;
+    left:50%;
+    margin-left:-25px;
+  }
+
+  .box1{
+    animation:easing 2s infinite;
+    animation-timing-function: linear;
+  }
+  .box2{
+    animation:easing 2s infinite;
+    animation-timing-function: ease-in;
+  }
+  .box3{
+    animation:easing 2s infinite;
+    animation-timing-function: ease-out;
+  }
+  .box4{
+    animation:easing 2s infinite;
+    animation-timing-function: ease-in-out;
+  }
+  .box5{
+    animation:easing 2s infinite;
+    animation-timing-function: cubic-bezier(.68,-0.38,.23,1.54);
+  }
+
+  @keyframes easing {
+    0% {top:0}
+    100%{top:450px}
+  }
+
+}
+
+.js-wrap{
+  border:{
+    left:1px solid #009999;
+    bottom:1px solid #009999;
+  }
+  margin:10px 10px 100px;
+
+  @extend %clearfix;
+
+  .inner-wrap{
+    width:20%;
+    height:500px;
+    border-right:1px solid #009999;
+    float:left;
+    box-sizing:border-box;
+    position:relative;
+
+    &:before{
+      position:absolute;
+      top:200px;
+      font-size:30px;
+      color:#ddd;
+      transform:rotate(45deg);
+    }
+
+    &:nth-child(2):before{
+      content:"등속운동(linear)";
+    }
+
+    &:nth-child(3):before{
+      content:"가속운동(ease-in)";
+    }
+
+    &:nth-child(4):before{
+      content:"감속운동(ease-out)";
+    }
+
+    &:nth-child(5):before{
+      content:"가감속운동(ease-in-out)";
+    }
+
+    &:nth-child(6):before{
+      content:"사용자정의속도운동(cubic-bezier)";
+    }
+  }
+
+  .box{
+    width:50px;
+    height:50px;
+    background:orange;
+    text-align:center;
+    line-height:50px;
+    position:absolute;
+    top:0;
+    left:50%;
+    margin-left:-25px;
+  }
+
+
+
+  @keyframes easing {
+    0% {top:0}
+    100%{top:450px}
+  }
+
+}

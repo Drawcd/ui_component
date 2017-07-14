@@ -1,0 +1,72 @@
+.header {
+  border-bottom: 1px solid red;
+  margin-bottom:100px;
+}
+
+.gnb {
+  padding:20px 0;
+  background:#ddd;
+
+  &:after {
+    content:"";
+    display:block;
+    clear:both;
+  }
+
+  &-depth1 {
+    width:600px;
+    margin: 0 auto;a
+
+    &:after{
+      content:"";
+      display:block;
+      clear:both;
+    }
+    &-item {
+      float:left;
+      width:25%;
+      text-align:center;
+    }
+    &-link:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &-depth2 {
+    margin-top: 20px;
+
+    &-item{
+      margin-top:10px;
+    }
+    &-link:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.util{
+
+  padding:10px 0;
+  background:#333;
+  border-bottom:1px solid red;
+
+  &-menu{
+    width:600px;
+    margin:0 auto;
+    text-align:center;
+  }
+
+  &-link{
+    color:#fff;
+  }
+}
+
+// 공통 제목 스타일링
+.cate-heading{
+  font-size:30px;
+  border-bottom:3px solid #ffcc00;
+  margin: 0 auto 50px;
+  width:960px;
+  padding-bottom:10px;
+  font-weight:bold;
+}

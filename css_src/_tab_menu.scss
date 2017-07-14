@@ -1,0 +1,108 @@
+// Sass 주석 중 // 주석은 css로 변환시 출력되지 않음
+
+/* Tab Menu Styling */
+
+
+
+// js 애니메이션용 style
+.tab{
+
+  &-wrap{
+    width:960px;
+    margin:0 auto;
+    position:relative;
+    padding-top:100px;
+  }
+
+  &-heading{
+    width:33.33%;
+    position:absolute;
+    top:0;
+    left:0;
+
+    &.css{
+      left:33.33%;
+    }
+
+    &.js{
+      left:66.66%;
+    }
+
+    >a{
+      display:block;
+      padding:20px;
+      text-align:center;
+      border:1px solid mediumvioletred;
+      box-sizing:border-box;
+      background:#fff;
+
+      &.on{
+        color:#fff;
+        background:mediumvioletred;
+        border-color:greenyellow;
+      }
+    }
+  }
+
+}
+
+// css 애니메이션용 style
+.css-tab{
+
+  &-wrap{
+    width:960px;
+    margin:0 auto;
+    position:relative;
+    padding-top:100px;
+  }
+
+  &-heading{
+    width:33.33%;
+    position:absolute;
+    top:0;
+    left:0;
+
+    &.css{
+      left:33.33%;
+    }
+
+    &.js{
+      left:66.66%;
+    }
+
+    >a{
+      display:block;
+      padding:20px;
+      text-align:center;
+      border:1px solid mediumvioletred;
+      box-sizing:border-box;
+      background:#fff;
+      // 애니메이션 구현 속성
+      transition:all 0.5s ease-out;
+
+      &.on{
+        color:#fff;
+        background:mediumvioletred;
+        border-color:greenyellow;
+      }
+    }
+  }
+
+  &-content{
+    // display 속성은 애니메이션 적용 안됨
+    visibility: hidden;
+    opacity:0;
+    // 애니메이션 구현 CSS
+    transition:all .5s ease-out;
+    width:100%;
+    position:absolute;
+    top:100px;
+    left:0;
+
+    &.on{
+      visibility: visible;
+      opacity:1;
+    }
+  }
+
+}

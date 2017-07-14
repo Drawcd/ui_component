@@ -1,0 +1,317 @@
+/* Gnb Menu Style*/
+
+//기본 style
+.menu {
+
+  &-wrap{
+    // border-top: 50px solid #333;
+    // border-bottom: 50px solid #333;
+    // sass에서는 위 두줄을 아래와 같이 작성 할 수도 있다.
+    border:{
+      top:50px solid #333;
+      // bottom: 50px solid #bbb;
+    }
+    // 글꼴이름이 한글, 공백이 있을 때 따옴표
+    font-family: "Noto Sans CJK KR", sans-serif;
+    @extend %clearfix; // @extend는 class명과 같은 이름의 속성 값을 가져온다
+
+    position:relative;
+
+  }
+
+  &-inner{
+    width:1080px;
+    margin:0 auto;
+  }
+
+  &-logo{
+    float:left;
+    margin:21px 100px 0 0;
+  }
+
+  &-nav{
+    float:left;
+  }
+
+  &-depth1{
+
+    @extend %clearfix;
+
+    &-item{
+      float:left;
+    }
+    &-link{
+      display:block;
+      color:#666;
+      font-size:17px;
+      padding:33px 27px 0;
+      height:47px;
+
+      &:hover{
+        color:#f27321;
+      }
+    }
+
+    &-border{
+      content:"";
+      display:block;
+      width:0px;
+      height:4px;
+      background:deepskyblue;
+      margin:10px auto 0;
+    }
+
+  }
+  &-depth2 {
+    position:relative;
+    left:50%;
+    margin-left:-250px;
+    padding:18px 0 20px 0;
+
+    @extend %clearfix; // % sass 전용 selecter
+
+    &-zindex{
+      z-index:10;
+    }
+    &-wrap{
+      position:absolute;
+      top:80px;
+      left:0;
+      width:100%;
+      background:#d0d0d0;
+      height:0;
+      overflow:hidden;
+    }
+    &-item{
+      float:left;
+      margin-right:40px;
+
+      &.vertical{
+        float:none;
+        padding-bottom:10px;
+        margin-right:0;
+
+        @extend %clearfix; // % sass 전용 selecter
+
+        &:last-child{
+          padding-bottom:0;
+        }
+        >.menu-depth2-link {
+          float:left;
+        }
+
+      }
+    }
+    &-link{
+      color:#666;
+      width:100px;
+
+
+
+      &:hover{
+        color:#f27321;
+
+      }
+    }
+  }
+  &-depth3 {
+    float:left;
+    position:relative;
+    padding-left:25px;
+    line-height:13px;
+
+    &:before{
+      content:"";
+      display:block;
+      width:1px;
+      height:15px;
+      background:#f27321;
+      position:absolute;
+      top:2px;
+      left:0;
+    }
+
+    &-link{
+      color:#666;
+      font-size:12px;
+
+
+      &:hover{
+        color:#f27321;
+      }
+    }
+  }
+}
+
+
+// visual style
+.visual {
+  height:820px;
+  background:url(../images/visual_img1.jpg) no-repeat top center;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 80px;
+  color:#fff;
+  text-align:center;
+  padding-top:200px;
+}
+
+
+// css 애니메이션
+.css-menu {
+
+  &-wrap{
+    // border-top: 50px solid #333;
+    // border-bottom: 50px solid #333;
+    // sass에서는 위 두줄을 아래와 같이 작성 할 수도 있다.
+    border:{
+      top:50px solid #333;
+      // bottom: 50px solid #bbb;
+    }
+    // 글꼴이름이 한글, 공백이 있을 때 따옴표
+    font-family: "Noto Sans CJK KR", sans-serif;
+    @extend %clearfix; // @extend는 class명과 같은 이름의 속성 값을 가져온다
+
+    position:relative;
+
+  }
+
+  &-inner{
+    width:1080px;
+    margin:0 auto;
+  }
+
+  &-logo{
+    float:left;
+    margin:21px 100px 0 0;
+  }
+
+  &-nav{
+    float:left;
+  }
+
+  &-depth1{
+
+    @extend %clearfix;
+
+    &-item{
+      float:left;
+    }
+    &-link{
+      display:block;
+      color:#666;
+      font-size:17px;
+      padding:33px 27px 0;
+      height:47px;
+
+      &:hover{
+        color:yellowgreen;
+
+        &:after{
+          width:64px;
+        }
+      }
+      &:after{
+        content:"";
+        display:block;
+        width:0px;
+        height:4px;
+        background:yellowgreen;
+        margin:10px auto 0;
+        transition: width 0.3s ease-out;
+      }
+    }
+  }
+
+  &-depth2 {
+    position:relative;
+    left:50%;
+    margin-left:-250px;
+    padding:18px 0 20px 0;
+
+    @extend %clearfix; // % sass 전용 selecter
+
+    &-zindex{
+      z-index:10;
+    }
+    &-wrap{
+      position:absolute;
+      top:80px;
+      left:0;
+      width:100%;
+      background:#d0d0d0;
+      height:0;
+      overflow:hidden;
+      opacity: 0 ;
+      transition: all .3s ease-out;
+
+      &.on {
+        z-index: 10;
+        height:54px;
+        opacity: 1;
+      }
+      &.high.on {
+        z-index: 10;
+        height: 80px;
+        opacity: 1;
+      }
+    }
+    &-item{
+      float:left;
+      margin-right:40px;
+
+      &.vertical{
+        float:none;
+        padding-bottom:10px;
+        margin-right:0;
+
+        @extend %clearfix; // % sass 전용 selecter
+
+        &:last-child{
+          padding-bottom:0;
+        }
+        >.css-menu-depth2-link {
+          float:left;
+        }
+
+      }
+    }
+    &-link{
+      color:#666;
+      width:100px;
+
+
+
+      &:hover{
+        color:#f27321;
+
+      }
+    }
+  }
+  &-depth3 {
+    float:left;
+    position:relative;
+    padding-left:25px;
+    line-height:13px;
+
+    &:before{
+      content:"";
+      display:block;
+      width:1px;
+      height:15px;
+      background:#f27321;
+      position:absolute;
+      top:2px;
+      left:0;
+    }
+
+    &-link{
+      color:#666;
+      font-size:12px;
+
+
+      &:hover{
+        color:#f27321;
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+/*단순 스타일 */
+
+// %로 시작하는 porperty명은 sass로 자동 병합되지는 않지만 개인 @extend로 특정 porperty로 넣을 수는 있다
+
+%clearfix:after{
+  content:"";
+  display:block;
+  clear:both;
+}

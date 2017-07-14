@@ -1,7 +1,3 @@
-/*
-  HTML 태그요소의 기본 스타일을 초기화 시켜주는 CSS
-  아래 reset css 내용중 잘못된 부분은 주석처리 하였습니다.
-*/
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -17,58 +13,42 @@ dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
-figure, figcaption, footer, header, /*hgroup, 사용하지 않는다.*/
+figure, figcaption, footer, header, /*hgroup,*/
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  /* 부라우저의 기본 폰트 크기를 사용함 : 16px*/
-  /*font-size: 100%;*/
-  /*font: inherit;*/
-  vertical-align: baseline;
-  font-size:15px;
-  color:#333;
-  font-family: 'Lato', sans-serif;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
-footer, header, /* hgroup,*/ menu, nav, section {
-  display: block;
+footer, header, /*hgroup,*/ menu, nav, section {
+	display: block;
 }
 body {
-  line-height: 1;
+	line-height: 1;
 }
 ol, ul {
-  list-style: none;
+	list-style: none;
 }
 blockquote, q {
-  quotes: none;
+	quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-  content: "";
-  content: none;
-  /* 브라우저별 인식이 다르기때문에 content를 두가지로 표기한다. */
+	content: "";
+	content: none;
 }
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-a {
-  text-decoration: none;
-  /*a링크 밑줄 삭제*/
+	border-collapse: collapse;
+	border-spacing: 0;
+	border:1px solid #333;
 }
 
-h1 {
-  color:#3d506f;
+a{
+	text-decoration: none;
+	color:#333;
 }
-
-h2,h3,h4 {
-  color:#7f90a5;
-}
-
-/*기본 글씨크기	:	15px
-작은 글씨색상	:	#7f90a5
-제목 글씨색상	:	#3d506f
-흰색상 글씨	:	 #fff*/

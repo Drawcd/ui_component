@@ -1,0 +1,55 @@
+<!--=include _include/_header_gnb_menu.html -->
+<!--=include _include/_gnb.html -->
+<h1 class="cate-heading">GNB 메뉴 구현 - jQuery</h1>
+<section class="menu-wrap">
+  <div class="menu-inner">
+    <h1 class="menu-logo">
+      <img src="../images/logo_hw.gif" alt="로고" />
+    </h1>
+
+    <nav class="menu-nav">
+      <ul class="menu-depth1">
+        <li class="menu-depth1-item">
+          <a href="#" class="menu-depth1-link">
+            지속가능경영
+            <!-- jQuery에서 가상요소에 접근할수 없기 때문에 콘텐츠가 없는 태그를 사용해야 함 -->
+            <span class="menu-depth1-border"></span>
+          </a>
+          <div class="menu-depth2-wrap">
+            <ul class="menu-depth2">
+              <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">윤리경영</a></li>
+              <li class="menu-depth2-item"><a href="#" class="menu-depth2-link">동반성장</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="menu-depth1-item">
+          <a href="#" class="menu-depth1-link">
+            제품소개
+            <span class="menu-depth1-border"></span>
+          </a>
+          <div class="menu-depth2-wrap">
+            <ul class="menu-depth2">
+            <li class="menu-depth2-item vertical">
+              <a href="#" class="menu-depth2-link">자동차 소재</a>
+              <ul class="menu-depth3">
+                <li class="menu-depth3-item"><a href="#" class="menu-depth3-link">Strong Lite</a></li>
+              </ul>
+            </li>
+            <li class="menu-depth2-item vertical">
+              <a href="#" class="menu-depth2-link">태양광</a>
+              <ul class="menu-depth3">
+                <li class="menu-depth3-item"><a href="#" class="menu-depth3-link">EVA Sheet</a></li>
+              </ul>
+            </li>
+          </ul>
+          </div>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</section>
+<section class="visual">
+  LIGHTER
+</section>
+
+<!--=include _include/_footer.html -->
