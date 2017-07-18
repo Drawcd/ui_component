@@ -86,10 +86,18 @@ gulp.task('imagesliding', function() {
     .pipe(gulp.dest('js/'));
 });
 
+gulp.task('accmenu', function() {
+  return gulp.src('js_src/acc_menu/*.js')
+    .pipe(sourcemaps.init())
+      .pipe(concat('acc_menu.js'))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('js/'));
+});
+
 
 //concat 모둘의 여러가지 객체를 jsconcat로 하나로 묶어 default에 해당 객체로 넣어 한번에 실행 할 수 있다.
 // concat 실행 - 여러 개의 파일을 하나의 파일로 합치는 기능
-gulp.task('jsconcat', ['tabmenu', 'gnbmenu', 'timingfunction', 'imagesliding']);
+gulp.task('jsconcat', ['tabmenu', 'gnbmenu', 'timingfunction', 'imagesliding','accmenu']);
 // gulp.task('default',['livereload','include','sass','tabmenu','gnbmenu','watch']); 객체 활용 전
 gulp.task('default',['livereload','include','sass','jsconcat','watch']);
 // watch가 항상 마지막에 들어가야 정상 작동한다.

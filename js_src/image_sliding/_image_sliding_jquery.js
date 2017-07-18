@@ -6,9 +6,9 @@
 $(function(){
   // 선언부
   function init(){
-    $('.view-image').eq(0).css({left: 0});
-    $('.view-image').eq(1).css({left: 400});
-    $('.view-image').eq(2).css({left: -400});
+    $('.js-sliding .js-view-image').eq(0).css({left: 0});
+    $('.js-sliding .js-view-image').eq(1).css({left: 400});
+    $('.js-sliding .js-view-image').eq(2).css({left: -400});
     marginControlWrap(); // control button center 배치
     paging();
   }
@@ -20,16 +20,16 @@ $(function(){
 
   function moveLeft(){
 
-    if(nextIndex >= $('.view-image').length){
+    if(nextIndex >= $('.js-sliding .js-view-image').length){
     nextIndex = 0;
     }
-    $('.view-image').eq(currentIndex).stop().animate({left: -400}, 1000, 'easeOutBounce');
-    $('.view-image').eq(nextIndex).css({left:400}).stop().animate({left:0} , 1000, 'easeOutBounce');
+    $('.js-sliding .js-view-image').eq(currentIndex).stop().animate({left: -400}, 1000, 'easeOutBounce');
+    $('.js-sliding .js-view-image').eq(nextIndex).css({left:400}).stop().animate({left:0} , 1000, 'easeOutBounce');
 
-    console.log('nextIndex : ' + nextIndex);
-    console.log('1번째' + $('.view-image').eq(0).offset().left);
-    console.log('2번째' + $('.view-image').eq(1).offset().left);
-    console.log('3번째' + $('.view-image').eq(2).offset().left);
+    // console.log('nextIndex : ' + nextIndex);
+    // console.log('1번째' + $('.js-sliding .view-image').eq(0).offset().left);
+    // console.log('2번째' + $('.js-sliding .view-image').eq(1).offset().left);
+    // console.log('3번째' + $('.js-sliding .view-image').eq(2).offset().left);
 
     currentIndex = nextIndex;
     nextIndex++;
@@ -38,23 +38,23 @@ $(function(){
   function moveRight(){
 
     if(nextIndex < 0){
-    nextIndex = $('.view-image').length-1; // 인덱스 넘버는 0부터 시작하기때문에 -1을 대입한다.
+    nextIndex = $('.js-sliding  .js-view-image').length-1; // 인덱스 넘버는 0부터 시작하기때문에 -1을 대입한다.
     }
 
-    $('.view-image').eq( currentIndex ).stop().animate({left: 400}, 1000, 'easeInOutBounce', function(){
-    console.log( $('.view-image:animated'));  // view-image가 애니메이션 동작할 때 로그내용 출력 콜백함수임으로 아래 같은 구문보다 늦게 출력된다.
+    $('.js-sliding  .js-view-image').eq( currentIndex ).stop().animate({left: 400}, 1000, 'easeInOutBounce', function(){
+    console.log( $('.js-sliding  .js-view-image:animated'));  // view-image가 애니메이션 동작할 때 로그내용 출력 콜백함수임으로 아래 같은 구문보다 늦게 출력된다.
     });
-    console.log( $('.view-image:animated')); // view-image가 애니메이션 동작할 때 로그내용 출력
-    $('.view-image').eq( nextIndex ).css({left:-400}).stop().animate({left:0} , 1000, 'easeInOutBounce');
+    console.log( $('.js-sliding .js-view-image:animated')); // view-image가 애니메이션 동작할 때 로그내용 출력
+    $('.js-view-image').eq( nextIndex ).css({left:-400}).stop().animate({left:0} , 1000, 'easeInOutBounce');
 
     console.log('nextIndex : ' + nextIndex);
-    console.log('1번째' + $('.view-image').eq(0).offset().left);
-    console.log('2번째' + $('.view-image').eq(1).offset().left);
-    console.log('3번째' + $('.view-image').eq(2).offset().left);
+    console.log('1번째' + $('.js-sliding .js-view-image').eq(0).offset().left);
+    console.log('2번째' + $('.js-sliding .js-view-image').eq(1).offset().left);
+    console.log('3번째' + $('.js-sliding .js-view-image').eq(2).offset().left);
 
     currentIndex = nextIndex;
     nextIndex--;
-  };
+  }
 
   function marginControlWrap(){ // control button center 배치
     var wrapWidth = $('.control-wrap').width();
@@ -64,11 +64,11 @@ $(function(){
   }
 
   function paging(){
-    var imgNumber = $('.view-image').length; // size() 개수 구하는 함수
+    var imgNumber = $('.js-view-image').length; // size() 개수 구하는 함수
     for(var i=0; i<imgNumber; i++){
       $('.paging').append('<li class="paging-item"><a href="#">' + (i+1) + '</a></li>');
     }
-  };
+  }
 
   function clickPaging(){
 
@@ -81,10 +81,10 @@ autoRolling();
 function autoRolling(){
   timeID = setInterval( function(){
   nextIndex = currentIndex +1;
-  if( !$('.view-image').is(':animated') ){
+  if( !$('.js-view-image').is(':animated') ){
     moveLeft();
     }
-  console.log(timeID);
+  // console.log(timeID);
 }, 3000);
 }
 
@@ -111,7 +111,7 @@ $('.arrow.right').on('click', function(){
   nextIndex = currentIndex +1 ;
   // 애니메이션이 진행되지 않을 떄 함수 실행
   // view-image가 애니메이션 작동시 함수를 사용하지 못하게 할 수 있는 방법이 없음으로 작동이 아닐때(!)사용 작동하는 방법으로 응용한다.
-  if( !$('.view-image').is(':animated') ){ // is() 함수 사용하여 animated가 실행되지 않을때 moveLeft()가 실행되도록 한다.
+  if( !$('.js-view-image').is(':animated') ){ // is() 함수 사용하여 animated가 실행되지 않을때 moveLeft()가 실행되도록 한다.
     moveLeft();
   }
 
@@ -183,28 +183,28 @@ $(document).on('click','.paging-item', function(e){
 
   var indexNumber = $(this).index('.paging-item');
 
-  if( currentIndex != indexNumber ){
+  if (currentIndex != indexNumber) {
     if( currentIndex == 0){
-      if( indexNumber == $('.view-image').length-1) {   //length -1 해주는 이유는 .view-image를 가진 이미지 수를 확인 하는데 있어 0부터 숫자를 세기 때문에 +1로 갯수로 알기 위함이다.
+      if( indexNumber == $('.js-view-image').length-1) {   //length -1 해주는 이유는 .view-image를 가진 이미지 수를 확인 하는데 있어 0부터 숫자를 세기 때문에 +1로 갯수로 알기 위함이다.
         nextIndex = currentIndex - 1;
-        if( !$('.view-image').is('animated')){
+        if( !$('.js-view-image').is('animated')){
           moveRight();
         }
       } else {
         nextIndex = currentIndex + 1;
-        if( !$('.view-imiage').is(':animated')){
+        if( !$('.js-view-imiage').is(':animated')){
           moveLeft();
         }
       }
     } else if( currentIndex == $('.view-image').length-1 ){
       if( indexNumber == 0 ){
         nextIndex = currentIndex + 1;
-        if( !$('.view-image').is(':animated') ){
+        if( !$('.js-view-image').is(':animated') ){
           moveLeft();
         }
       } else {
         nextIndex = currentIndex - 1;
-        if( !$('.view-image').is(':animated') ){
+        if( !$('.js-view-image').is(':animated') ){
           moveRight();
         }
       }
@@ -212,12 +212,12 @@ $(document).on('click','.paging-item', function(e){
 
       if( currentIndex < indexNumber ){
         nextIndex = currentIndex + 1;
-        if( !$('.view-image').is(':animated') ){
+        if( !$('.js-view-image').is(':animated') ){
            moveLeft();
          }
        } else {
         nextIndex = currentIndex - 1;
-        if( !$('.view-image').is(':animated') ){
+        if( !$('.js-view-image').is(':animated') ){
            moveRight();
         }
       }
